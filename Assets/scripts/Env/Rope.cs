@@ -14,9 +14,16 @@ public class Rope : MonoBehaviour
 
     public List<Rigidbody2D> joints = new List<Rigidbody2D>();
     private LineRenderer lineRenderer;
-
+    
     void Start()
     {
+        
+    if (joints == null)
+        joints = new List<Rigidbody2D>();
+
+    lineRenderer = GetComponent<LineRenderer>();
+    CreateRope();
+
         lineRenderer = GetComponent<LineRenderer>();
         CreateRope();
     }
@@ -56,7 +63,7 @@ public class Rope : MonoBehaviour
 
         lineRenderer.positionCount = numberOfJoints;
     }
-
+    
     void Update()
     {
         UpdateLine();
